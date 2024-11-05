@@ -11,6 +11,13 @@ const Razorpay = require('razorpay')
 
 const app = express()
 
+app.use(cors(
+    {
+        origin:["https://mern-tawny-xi.vercel.app/"],
+        methods:["POST","GET","UPDATE","DELETE"],
+        credentials: true
+    }
+))
 
 app.use(express.json())
 app.use(bodyParser.json())
