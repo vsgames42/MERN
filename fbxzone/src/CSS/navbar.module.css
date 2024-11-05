@@ -1,0 +1,27 @@
+@font-face{
+    font-family: "dancingscript";
+    src: url("../DancingScript-Regular.ttf");
+}
+
+.hh{
+    font-family:"dancingscript";
+}
+
+.one{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 350px;
+    background-color: #003C43;
+}
+
+@media only screen and (max-width: 1100px) {
+    .one{
+        width: 1100px;
+        display: flex;
+        justify-content: space-evenly;
+        gap: 50px;
+    }
+  }

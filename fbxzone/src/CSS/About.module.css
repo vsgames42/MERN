@@ -1,0 +1,24 @@
+.cont{
+    padding-top: 100px;
+}
+
+.cont > h3{
+    color: black;
+}
+
+.banner{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.bimg{
+    border-radius: 30px;
+    -webkit-box-shadow: 10px 10px 23px 0px rgba(51,51,51,1);
+    -moz-box-shadow: 10px 10px 23px 0px rgba(51,51,51,1);
+    box-shadow: 10px 10px 23px 0px rgba(51,51,51,1);
+}
+
+.carousel{
+    margin-top: 50px;
+}
