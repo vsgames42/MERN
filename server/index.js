@@ -63,7 +63,7 @@ app.post('/verify-payment',(req,res)=>{
     }
 })
 
-mongoose.connect('mongodb://127.0.0.1:27017/fbxzone')
+mongoose.connect('mongodb+srv://vichu1722000smart:XzWZUhVaGkeXPkSQ@cluster0.kdsoe.mongodb.net/fbxzone')
 
 app.post('/register',(req,res)=>{
     empModel.create(req.body)
