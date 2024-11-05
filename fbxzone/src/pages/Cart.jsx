@@ -14,15 +14,15 @@ function Cart() {
 
   useEffect(()=>{
     //Fetch cart items
-    axios.get('server-steel-one.vercel.app/api/cart')
+    axios.get('https://server-steel-one.vercel.app/api/cart')
     .then(res=>setCartItems(res.data))
     .catch(err=>console.log(err))
   },[])
 
   const removeFromCart = (productId)=>{
-    axios.post('server-steel-one.vercel.app/api/cart/remove',{productId})
+    axios.post('https://server-steel-one.vercel.app/api/cart/remove',{productId})
     .then(()=>{
-        axios.get('server-steel-one.vercel.app/api/cart')
+        axios.get('https://server-steel-one.vercel.app/api/cart')
         .then(res=>setCartItems(res.data))
     })
     .catch(err=>console.log(err))
@@ -37,7 +37,7 @@ function Cart() {
   const handlePayment = async ()=>{
     try{
         //Create order from backend
-        const {data} = await axios.post('server-steel-one.vercel.app/create-order',{
+        const {data} = await axios.post('https://server-steel-one.vercel.app/create-order',{
             amount,
             currency: 'INR'
         })
@@ -58,12 +58,12 @@ function Cart() {
                 }
                 try{
                     //Verify payment with backend
-                    const result = await axios.post('server-steel-one.vercel.app/verify-payment',verifyData)
+                    const result = await axios.post('https://server-steel-one.vercel.app/verify-payment',verifyData)
 
                     if (result.data.message === 'Payment successful')
                     {
                         alert('Payment successfull, Download products from orders page.')
-                        cartItems.map(prod => axios.post('server-steel-one.vercel.app/order',
+                        cartItems.map(prod => axios.post('https://server-steel-one.vercel.app/order',
                           {
                             Image : prod.productId.Image,
                             ProductName : prod.productId.ProductName,
@@ -72,7 +72,7 @@ function Cart() {
                           }
                         ))
                         setCartItems([])
-                        axios.delete('server-steel-one.vercel.app/drop')
+                        axios.delete('https://server-steel-one.vercel.app/drop')
                     }
                     else
                     {
