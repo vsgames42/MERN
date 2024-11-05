@@ -15,7 +15,7 @@ function Sell() {
     const handleSubmit = (e) => {
         e.preventDefault();
   
-        axios.post('http://localhost:3001/sell', {
+        axios.post('server-steel-one.vercel.app/sell', {
             ProductName: pname,
             AuthorName: aname,
             Price: price,

@@ -14,15 +14,15 @@ function Cart() {
 
   useEffect(()=>{
     //Fetch cart items
-    axios.get('http://localhost:3001/api/cart')
+    axios.get('server-steel-one.vercel.app/api/cart')
     .then(res=>setCartItems(res.data))
     .catch(err=>console.log(err))
   },[])
 
   const removeFromCart = (productId)=>{
-    axios.post('http://localhost:3001/api/cart/remove',{productId})
+    axios.post('server-steel-one.vercel.app/api/cart/remove',{productId})
     .then(()=>{
-        axios.get('http://localhost:3001/api/cart')
+        axios.get('server-steel-one.vercel.app/api/cart')
         .then(res=>setCartItems(res.data))
     })
     .catch(err=>console.log(err))
@@ -37,7 +37,7 @@ function Cart() {
   const handlePayment = async ()=>{
     try{
         //Create order from backend
-        const {data} = await axios.post('http://localhost:3001/create-order',{
+        const {data} = await axios.post('server-steel-one.vercel.app/create-order',{
             amount,
             currency: 'INR'
         })
@@ -58,12 +58,12 @@ function Cart() {
                 }
                 try{
                     //Verify payment with backend
-                    const result = await axios.post('http://localhost:3001/verify-payment',verifyData)
+                    const result = await axios.post('server-steel-one.vercel.app/verify-payment',verifyData)
 
                     if (result.data.message === 'Payment successful')
                     {
                         alert('Payment successfull, Download products from orders page.')
-                        cartItems.map(prod => axios.post('http://localhost:3001/order',
+                        cartItems.map(prod => axios.post('server-steel-one.vercel.app/order',
                           {
                             Image : prod.productId.Image,
                             ProductName : prod.productId.ProductName,
@@ -72,7 +72,7 @@ function Cart() {
                           }
                         ))
                         setCartItems([])
-                        axios.delete('http://localhost:3001/drop')
+                        axios.delete('server-steel-one.vercel.app/drop')
                     }
                     else
                     {

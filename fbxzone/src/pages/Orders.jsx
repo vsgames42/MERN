@@ -7,7 +7,7 @@ function Orders() {
   const [orders, setOrders] = useState([])
 
   useEffect(()=>{
-    axios.get('http://localhost:3001/getorder')
+    axios.get('server-steel-one.vercel.app/getorder')
     .then(item=>setOrders(item.data))
     .catch(err=>console.log(err))
   },[])
