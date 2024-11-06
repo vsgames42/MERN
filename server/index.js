@@ -147,7 +147,3 @@ app.delete('/drop', (req,res)=>{
     mongoose.connection.dropCollection('cartitems')
     res.send("Collection Dropped")
 })
-
-app.listen(3001,()=>{
-    console.log('server is running')
-})
