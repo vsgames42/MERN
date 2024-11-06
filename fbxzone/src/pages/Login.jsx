@@ -12,7 +12,14 @@ function Login() {
     const handleSubmit=(e)=>{
         const form = document.querySelector('form')
         e.preventDefault()
-        axios.post('https://server-steel-one.vercel.app/login',{email,password})
+        axios.post(
+            {
+                baseURL:'https://server-steel-one.vercel.app/login',
+                headers:{
+                    'Access-Control-Allow-Origin': '*'
+                }
+            },
+            {email,password})
         .then(result=>{console.log(result)
             if(result.data==='success')
             {

@@ -9,12 +9,26 @@ import Carousel1 from "../Layout/Carousel";
 function Home(){
   const [items, setItems] = useState([])
   useEffect(()=>{
-    axios.get('https://server-steel-one.vercel.app/gethome')
+    axios.get(
+      {
+        baseURL:'https://server-steel-one.vercel.app/gethome',
+        headers:{
+          'Access-Control-Allow-Origin': '*'
+        }
+      }
+      )
     .then(item => setItems(item.data))
     .catch(err => console.log(err))
   },[])
   const addToCart = (productId,price)=>{
-    axios.post('https://server-steel-one.vercel.app/api/cart/add',{productId,price})
+    axios.post(
+      {
+        baseURL:'https://server-steel-one.vercel.app/api/cart/add',
+        headers:{
+          'Access-Control-Allow-Origin': '*'
+        }
+      },
+      {productId,price})
     .then(data => console.log(data))
     .catch(err=>console.log(err))
     alert('product added to cart.')

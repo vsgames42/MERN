@@ -7,7 +7,14 @@ function Orders() {
   const [orders, setOrders] = useState([])
 
   useEffect(()=>{
-    axios.get('https://server-steel-one.vercel.app/getorder')
+    axios.get(
+      {
+        baseURL:'https://server-steel-one.vercel.app/getorder',
+        headers:{
+          'Access-Control-Allow-Origin': '*'
+        }
+      }
+      )
     .then(item=>setOrders(item.data))
     .catch(err=>console.log(err))
   },[])

@@ -14,15 +14,36 @@ function Cart() {
 
   useEffect(()=>{
     //Fetch cart items
-    axios.get('https://server-steel-one.vercel.app/api/cart')
+    axios.get(
+      {
+        baseURL : 'https://server-steel-one.vercel.app/api/cart',
+        headers: {
+          'Access-Control-Allow-Origin': '*'
+        }
+      }
+    )
     .then(res=>setCartItems(res.data))
     .catch(err=>console.log(err))
   },[])
 
   const removeFromCart = (productId)=>{
-    axios.post('https://server-steel-one.vercel.app/api/cart/remove',{productId})
+    axios.post(
+      {
+        baseURL:'https://server-steel-one.vercel.app/api/cart/remove',
+        headers:{
+          'Access-Control-Allow-Origin': '*'
+        }
+      },
+      {productId})
     .then(()=>{
-        axios.get('https://server-steel-one.vercel.app/api/cart')
+        axios.get(
+          {
+            baseURL:'https://server-steel-one.vercel.app/api/cart',
+            headers:{
+              'Access-Control-Allow-Origin': '*'
+            }
+          }
+        )
         .then(res=>setCartItems(res.data))
     })
     .catch(err=>console.log(err))
@@ -37,7 +58,14 @@ function Cart() {
   const handlePayment = async ()=>{
     try{
         //Create order from backend
-        const {data} = await axios.post('https://server-steel-one.vercel.app/create-order',{
+        const {data} = await axios.post(
+          {
+            baseURL : 'https://server-steel-one.vercel.app/create-order',
+            headers : {
+              'Access-Control-Allow-Origin': '*'
+            }
+          },
+            {
             amount,
             currency: 'INR'
         })
@@ -58,12 +86,25 @@ function Cart() {
                 }
                 try{
                     //Verify payment with backend
-                    const result = await axios.post('https://server-steel-one.vercel.app/verify-payment',verifyData)
+                    const result = await axios.post(
+                      {
+                        baseURL : 'https://server-steel-one.vercel.app/verify-payment',
+                        headers : {
+                          'Access-Control-Allow-Origin': '*'
+                        }
+                      },
+                      verifyData)
 
                     if (result.data.message === 'Payment successful')
                     {
                         alert('Payment successfull, Download products from orders page.')
-                        cartItems.map(prod => axios.post('https://server-steel-one.vercel.app/order',
+                        cartItems.map(prod => axios.post(
+                          {
+                            baseURL:'https://server-steel-one.vercel.app/order',
+                            headers:{
+                              'Access-Control-Allow-Origin': '*'
+                            }
+                          },
                           {
                             Image : prod.productId.Image,
                             ProductName : prod.productId.ProductName,
@@ -72,7 +113,14 @@ function Cart() {
                           }
                         ))
                         setCartItems([])
-                        axios.delete('https://server-steel-one.vercel.app/drop')
+                        axios.delete(
+                          {
+                            baseURL:'https://server-steel-one.vercel.app/drop',
+                            headers:{
+                              'Access-Control-Allow-Origin': '*'
+                            }
+                          }
+                          )
                     }
                     else
                     {

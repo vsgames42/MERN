@@ -12,7 +12,14 @@ function Register() {
     const handleSubmit = (e) =>{
         const form = document.querySelector('form')
         e.preventDefault()
-        axios.post('https://server-steel-one.vercel.app/register',{uname,email,password})
+        axios.post(
+          {
+            baseURL:'https://server-steel-one.vercel.app/register',
+            headers:{
+              'Access-Control-Allow-Origin': '*'
+            }
+          },
+          {uname,email,password})
         .then(result=>console.log(result))
         .catch(err=>console.log(err))
         form.reset()

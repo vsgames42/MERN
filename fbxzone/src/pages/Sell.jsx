@@ -15,7 +15,14 @@ function Sell() {
     const handleSubmit = (e) => {
         e.preventDefault();
   
-        axios.post('https://server-steel-one.vercel.app/sell', {
+        axios.post(
+            {
+                baseURL:'https://server-steel-one.vercel.app/sell', 
+                headers:{
+                    'Access-Control-Allow-Origin': '*'
+                }
+            },
+            {
             ProductName: pname,
             AuthorName: aname,
             Price: price,
