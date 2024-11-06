@@ -18,7 +18,6 @@ function Login() {
                 headers:{
                     'Access-Control-Allow-Origin': '*'
                 },
-                method:"POST"
             },
             {email,password})
         .then(result=>{console.log(result)
