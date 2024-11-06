@@ -15,6 +15,7 @@ app.use(cors(
     {
         origin:["https://mern-tawny-xi.vercel.app/"],
         methods:["POST","GET","UPDATE","DELETE"],
+        AccessControlAllowOrigin:"*",
         credentials: true
     }
 ))
