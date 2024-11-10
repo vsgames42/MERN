@@ -21,7 +21,6 @@ app.use(cors(
 
 app.use(express.json())
 app.use(bodyParser.json())
-app.use(cors())
 app.use('/api/cart',cartRoutes)
 
 const razorpay = new Razorpay({
