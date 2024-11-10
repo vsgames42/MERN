@@ -16,7 +16,8 @@ function Login() {
             {
                 baseURL:'https://server-steel-one.vercel.app/login',
                 headers:{
-                    'Access-Control-Allow-Origin': '*'
+                    'Access-Control-Allow-Origin' : '*'
+                    'credentials' : 'true'
                 },
             },
             {email,password})
