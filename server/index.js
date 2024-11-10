@@ -13,7 +13,7 @@ const app = express()
 
 app.use(cors(
     {
-        origin:["https://mern-tawny-xi.vercel.app/"],
+        origin:["https://mern-tawny-xi.vercel.app"],
         methods:["POST","GET","UPDATE","DELETE"],
         credentials: true,
     }
