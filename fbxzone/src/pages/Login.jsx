@@ -16,7 +16,10 @@ function Login() {
             {
                 baseURL:'https://server001-indol.vercel.app/login',
                 headers:{
-                    'Access-Control-Allow-Origin': '*'
+                    'Access-Control-Allow-Origin' : '*',
+                    "Access-Control-Allow-Credentials" : "true",
+                    "Access-Control-Allow-Methods" : "GET,POST,DELETE",
+                    "Access-Control-Allow-Headers" : "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
                 },
             },
             {email,password})

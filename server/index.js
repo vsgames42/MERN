@@ -15,20 +15,21 @@ app.use(cors(
     {
         origin:["https://mern-tawny-xi.vercel.app"],
         methods:["POST","GET","UPDATE","DELETE"],
-        credentials: true
+        credentials: true,
     }
 ))
 
 app.use(express.json())
 app.use(bodyParser.json())
-app.use(cors())
 app.use('/api/cart',cartRoutes)
 
 const razorpay = new Razorpay({
     key_id: 'rzp_test_VqxBBYkPy1xQxE',
     key_secret: 'UQKRx2ftjqzZJYfcKmnWjNQ1'
 })
-
+app.get("/",(req,res)=>{
+    res.send("Server is working")
+})
 app.post('/create-order',async(req,res)=>{
     const {amount,currency} = req.body;
 
