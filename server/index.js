@@ -71,7 +71,7 @@ app.post('/verify-payment',(req,res)=>{
     }
 })
 
-mongoose.connect('mongodb+srv://vichu1722000smart:XzWZUhVaGkeXPkSQ@cluster0.kdsoe.mongodb.net/fbxzone')
+mongoose.connect('mongodb+srv://vichu1722000smart:XzWZUhVaGkeXPkSQ@cluster0.kdsoe.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/fbxzone')
 
 app.post('/register',(req,res)=>{
     empModel.create(req.body)
