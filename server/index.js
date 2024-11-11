@@ -27,7 +27,9 @@ const razorpay = new Razorpay({
     key_id: 'rzp_test_VqxBBYkPy1xQxE',
     key_secret: 'UQKRx2ftjqzZJYfcKmnWjNQ1'
 })
-
+app.get("/",(req,res)=>{
+    res.send("Server is working")
+})
 app.post('/create-order',async(req,res)=>{
     const {amount,currency} = req.body;
 
