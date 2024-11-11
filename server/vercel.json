@@ -12,6 +12,9 @@
             "dest":"/"
         }
     ],
+    "rewrites": [
+        {"source": "/(.*)", "destination": "/"}
+    ],
     "headers": [
         {
           "source": "/(.*)",
