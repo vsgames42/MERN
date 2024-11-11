@@ -9,7 +9,7 @@ function Orders() {
   useEffect(()=>{
     axios.get(
       {
-        baseURL:'https://server-steel-one.vercel.app/getorder',
+        baseURL:'https://server001-indol.vercel.app/getorder',
         headers:{
           'Access-Control-Allow-Origin': '*'
         }

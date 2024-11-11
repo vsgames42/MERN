@@ -17,7 +17,7 @@ function Sell() {
   
         axios.post(
             {
-                baseURL:'https://server-steel-one.vercel.app/sell', 
+                baseURL:'https://server001-indol.vercel.app/sell', 
                 headers:{
                     'Access-Control-Allow-Origin': '*'
                 }

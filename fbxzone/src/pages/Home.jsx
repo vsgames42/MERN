@@ -11,7 +11,7 @@ function Home(){
   useEffect(()=>{
     axios.get(
       {
-        baseURL:'https://server-steel-one.vercel.app/gethome',
+        baseURL:'https://server001-indol.vercel.app/gethome',
         headers:{
           'Access-Control-Allow-Origin': '*'
         }
@@ -23,7 +23,7 @@ function Home(){
   const addToCart = (productId,price)=>{
     axios.post(
       {
-        baseURL:'https://server-steel-one.vercel.app/api/cart/add',
+        baseURL:'https://server001-indol.vercel.app/api/cart/add',
         headers:{
           'Access-Control-Allow-Origin': '*'
         }

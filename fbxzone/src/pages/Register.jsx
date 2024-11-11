@@ -14,7 +14,7 @@ function Register() {
         e.preventDefault()
         axios.post(
           {
-            baseURL:'https://server-steel-one.vercel.app/register',
+            baseURL:'https://server001-indol.vercel.app/register',
             headers:{
               'Access-Control-Allow-Origin': '*'
             }

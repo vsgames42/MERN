@@ -16,7 +16,7 @@ function Cart() {
     //Fetch cart items
     axios.get(
       {
-        baseURL : 'https://server-steel-one.vercel.app/api/cart',
+        baseURL : 'https://server001-indol.vercel.app/api/cart',
         headers: {
           'Access-Control-Allow-Origin': '*'
         }
@@ -29,7 +29,7 @@ function Cart() {
   const removeFromCart = (productId)=>{
     axios.post(
       {
-        baseURL:'https://server-steel-one.vercel.app/api/cart/remove',
+        baseURL:'https://server001-indol.vercel.app/api/cart/remove',
         headers:{
           'Access-Control-Allow-Origin': '*'
         }
@@ -38,7 +38,7 @@ function Cart() {
     .then(()=>{
         axios.get(
           {
-            baseURL:'https://server-steel-one.vercel.app/api/cart',
+            baseURL:'https://server001-indol.vercel.app/api/cart',
             headers:{
               'Access-Control-Allow-Origin': '*'
             }
@@ -60,7 +60,7 @@ function Cart() {
         //Create order from backend
         const {data} = await axios.post(
           {
-            baseURL : 'https://server-steel-one.vercel.app/create-order',
+            baseURL : 'https://server001-indol.vercel.app/create-order',
             headers : {
               'Access-Control-Allow-Origin': '*'
             }
@@ -88,7 +88,7 @@ function Cart() {
                     //Verify payment with backend
                     const result = await axios.post(
                       {
-                        baseURL : 'https://server-steel-one.vercel.app/verify-payment',
+                        baseURL : 'https://server001-indol.vercel.app/verify-payment',
                         headers : {
                           'Access-Control-Allow-Origin': '*'
                         }
@@ -100,7 +100,7 @@ function Cart() {
                         alert('Payment successfull, Download products from orders page.')
                         cartItems.map(prod => axios.post(
                           {
-                            baseURL:'https://server-steel-one.vercel.app/order',
+                            baseURL:'https://server001-indol.vercel.app/order',
                             headers:{
                               'Access-Control-Allow-Origin': '*'
                             }
@@ -115,7 +115,7 @@ function Cart() {
                         setCartItems([])
                         axios.delete(
                           {
-                            baseURL:'https://server-steel-one.vercel.app/drop',
+                            baseURL:'https://server001-indol.vercel.app/drop',
                             headers:{
                               'Access-Control-Allow-Origin': '*'
                             }
